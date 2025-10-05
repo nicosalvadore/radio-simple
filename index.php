@@ -20,7 +20,7 @@
           function getRadios() {
               $radios = array();
               if (($handle = fopen('database.csv', 'r')) !== FALSE) {
-                  while (($data = fgetcsv($handle, 0, ",")) !== FALSE) {
+                  while (($data = fgetcsv(stream: $handle, length:0, separator: ",", escape: "")) !== FALSE) {
                       $radio = array(
                           'pkid' => $data[0],
                           'name' => $data[1],
